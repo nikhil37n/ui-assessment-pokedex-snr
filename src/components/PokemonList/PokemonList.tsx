@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { createUseStyles } from 'react-jss';
-import { useGetPokemons } from '../../hooks/useGetPokemons';
-import { Pokemon } from '../Pokemon/Pokemon';
-import Pagination from '../Pagination/Pagination';
+import { ChangeEvent, useState } from "react";
+import { createUseStyles } from "react-jss";
+import { useGetPokemons } from "../../hooks/useGetPokemons";
+import { Pokemon } from "../Pokemon/Pokemon";
+import Pagination from "../Pagination/Pagination";
 
 export const PokemonList = () => {
   const classes = useStyles();
@@ -13,7 +13,7 @@ export const PokemonList = () => {
   const [postsPerPage, setPostsPerPage] = useState(10);
 
   // To Search & Filter Posts
-  const [searchItem, setSearchItem] = useState('');
+  const [searchItem, setSearchItem] = useState("");
   const [filteredPosts, setFilteredPosts] = useState(pokemons);
 
   const lastPostIndex = currentPage * postsPerPage;
@@ -21,7 +21,7 @@ export const PokemonList = () => {
   const currentPosts = pokemons.slice(firstPostIndex, lastPostIndex);
 
   // To search pokemon on input change
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const searchTerm = e.target.value;
     setSearchItem(searchTerm);
     const filteredItems = pokemons?.filter((pokemon) =>
@@ -74,37 +74,37 @@ export const PokemonList = () => {
 const useStyles = createUseStyles(
   {
     root: {
-      width: '100%',
-      textAlign: 'center',
-      padding: '32px',
-      boxSizing: 'border-box',
-      display: 'flex',
-      flexWrap: 'wrap',
-      marginBottom: '10px',
+      width: "100%",
+      textAlign: "center",
+      padding: "32px",
+      boxSizing: "border-box",
+      display: "flex",
+      flexWrap: "wrap",
+      marginBottom: "10px",
     },
     flex: {
-      display: 'flex',
-      justifyContent: 'space-between',
+      display: "flex",
+      justifyContent: "space-between",
     },
     searchbox: {
-      color: '#333',
-      height: '25px',
-      width: '200px',
-      marginTop: '33px',
-      marginLeft: '15px',
-      fontSize: '14px',
-      outline: 'none',
+      color: "#333",
+      height: "25px",
+      width: "200px",
+      marginTop: "33px",
+      marginLeft: "15px",
+      fontSize: "14px",
+      outline: "none",
       fontWeight: 600,
     },
     loading: {
-      position: 'absolute',
-      left: '50%',
-      top: '50%',
-      transform: 'translate(-50px, -50px)',
-      color: '#fff',
-      fontSize: '20px',
-      textTransform: 'uppercase',
+      position: "absolute",
+      left: "50%",
+      top: "50%",
+      transform: "translate(-50px, -50px)",
+      color: "#fff",
+      fontSize: "20px",
+      textTransform: "uppercase",
     },
   },
-  { name: 'PokemonList' }
+  { name: "PokemonList" }
 );

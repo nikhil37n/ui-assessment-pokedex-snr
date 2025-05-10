@@ -1,6 +1,7 @@
-import { useMemo } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { useMemo } from "react";
+import { useQuery } from "@apollo/react-hooks";
+import gql from "graphql-tag";
+import { GetPokemonDetailsPayload } from "../components/Model/Pokemon.model";
 
 export type PokemonDetails = {
   id: string;
@@ -49,7 +50,10 @@ export const GET_POKEMON_DETAILS = gql`
   }
 `;
 
-export const useGetPokemonDetails = ({ id, name }) => {
+export const useGetPokemonDetails = ({
+  id,
+  name,
+}: GetPokemonDetailsPayload) => {
   const { data, ...queryRes } = useQuery(GET_POKEMON_DETAILS, {
     variables: {
       id: id,

@@ -1,7 +1,7 @@
-import { useLocation } from 'react-router-dom';
-import { createUseStyles } from 'react-jss';
-import { useNavigate } from 'react-router-dom';
-import { useGetPokemonDetails } from '../../hooks/useGetPokemonDetails';
+import { useLocation } from "react-router-dom";
+import { createUseStyles } from "react-jss";
+import { useNavigate } from "react-router-dom";
+import { useGetPokemonDetails } from "../../hooks/useGetPokemonDetails";
 
 export const PokemonDetails = () => {
   const classes = useStyles();
@@ -20,9 +20,10 @@ export const PokemonDetails = () => {
 
   // To navigate back to list screen
   const closeModal = () => {
-    navigate('/pokemon');
+    navigate("/pokemon");
   };
 
+  // Animation for dialog image and title
   const styleSheet = document.styleSheets[0];
   const keyframes1 = `
   @keyframes fadeIn {
@@ -50,6 +51,7 @@ export const PokemonDetails = () => {
     styleSheet.insertRule(keyframes2, styleSheet.cssRules.length);
   }
 
+  // To render pokemon details
   const renderPokemonDetails = () => {
     if (!loading && pokemon) {
       return (
@@ -76,16 +78,16 @@ export const PokemonDetails = () => {
                 </div>
                 <div>
                   <p className={classes.textColor}>
-                    <span className={classes.label}>Classification: </span>{' '}
+                    <span className={classes.label}>Classification: </span>{" "}
                     {pokemon?.classification}
                   </p>
                   <p className={classes.textColor}>
                     <span className={classes.label}>Types: </span>
-                    {pokemon?.types?.join(', ')}
+                    {pokemon?.types?.join(", ")}
                   </p>
                   <p className={classes.textColor}>
                     <span className={classes.label}>Max CP: </span>
-                    {pokemon?.maxCP} |{' '}
+                    {pokemon?.maxCP} |{" "}
                     <span className={classes.label}>Max HP: </span>
                     {pokemon?.maxHP}
                   </p>
@@ -99,11 +101,11 @@ export const PokemonDetails = () => {
                   </p>
                   <p className={classes.textColor}>
                     <span className={classes.label}>Weaknesses: </span>
-                    {pokemon?.weaknesses?.join(', ')}
+                    {pokemon?.weaknesses?.join(", ")}
                   </p>
                   <p className={classes.textColor}>
                     <span className={classes.label}>Resistant: </span>
-                    {pokemon?.resistant?.join(', ')}
+                    {pokemon?.resistant?.join(", ")}
                   </p>
                 </div>
               </div>
@@ -125,77 +127,77 @@ export const PokemonDetails = () => {
 const useStyles = createUseStyles(
   {
     flex: {
-      display: 'flex',
+      display: "flex",
     },
     textColor: {
-      color: '#333',
+      color: "#333",
     },
     loading: {
-      position: 'absolute',
-      left: '50%',
-      top: '50%',
-      transform: 'translate(-50px, -50px)',
-      color: '#fff',
-      fontSize: '20px',
-      textTransform: 'uppercase',
+      position: "absolute",
+      left: "50%",
+      top: "50%",
+      transform: "translate(-50px, -50px)",
+      color: "#fff",
+      fontSize: "20px",
+      textTransform: "uppercase",
     },
     bounceAnimation: {
-      webkitAnimationDuration: '1s',
-      animationDuration: '1s',
-      webkitAnimationFillMode: 'both',
-      animationFillMode: 'both',
-      webkitAnimationName: 'bounce',
-      animationName: 'bounce',
+      webkitAnimationDuration: "1s",
+      animationDuration: "1s",
+      webkitAnimationFillMode: "both",
+      animationFillMode: "both",
+      webkitAnimationName: "bounce",
+      animationName: "bounce",
     },
     label: {
-      fontWeight: 'bold',
-      color: '#333',
-      fontSize: '16px',
+      fontWeight: "bold",
+      color: "#333",
+      fontSize: "16px",
     },
     overlayStyles: {
-      position: 'fixed',
+      position: "fixed",
       top: 0,
       left: 0,
-      width: '100vw',
-      height: '100vh',
-      backgroundColor: 'rgba(0,0,0,0.5)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "rgba(0,0,0,0.5)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
       zIndex: 1000,
-      letterSpacing: '1px',
-      textShadow: '0px 1px 2px rgba(0, 0, 0, .4)',
-      cursor: 'pointer',
+      letterSpacing: "1px",
+      textShadow: "0px 1px 2px rgba(0, 0, 0, .4)",
+      cursor: "pointer",
     },
     dialogStyles: {
-      background: '#fff',
-      padding: '25px 35px',
-      borderRadius: '12px',
-      width: '90%',
-      maxWidth: '700px',
-      position: 'relative',
+      background: "#fff",
+      padding: "25px 35px",
+      borderRadius: "12px",
+      width: "90%",
+      maxWidth: "700px",
+      position: "relative",
       boxShadow:
-        'rgba(0,255,255,0.5) 0px 0px 6px, rgba(0,255,255,0.5) 0px 0px 15px, rgba(0,255,255,0.5) 0px 3px 40px',
+        "rgba(0,255,255,0.5) 0px 0px 6px, rgba(0,255,255,0.5) 0px 0px 15px, rgba(0,255,255,0.5) 0px 3px 40px",
     },
     img: {
-      aspectRatio: '1/1',
-      width: '260px',
-      textAlign: 'center',
-      marginRight: '40px',
+      aspectRatio: "1/1",
+      width: "260px",
+      textAlign: "center",
+      marginRight: "40px",
     },
     rotatingImageStyle: {
-      animation: 'fadeIn 1s ease-in-out',
+      animation: "fadeIn 1s ease-in-out",
     },
     closeButtonStyles: {
-      position: 'absolute',
-      top: '8px',
-      right: '12px',
-      fontSize: '18px',
-      cursor: 'pointer',
-      background: 'transparent',
-      border: 'none',
-      fontFamily: 'revert',
+      position: "absolute",
+      top: "8px",
+      right: "12px",
+      fontSize: "18px",
+      cursor: "pointer",
+      background: "transparent",
+      border: "none",
+      fontFamily: "revert",
     },
   },
-  { name: 'PokemonDetails' }
+  { name: "PokemonDetails" }
 );

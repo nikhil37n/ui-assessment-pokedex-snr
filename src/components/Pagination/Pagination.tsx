@@ -1,7 +1,8 @@
-import React from 'react';
-import { createUseStyles } from 'react-jss';
+import React, { FC } from "react";
+import { createUseStyles } from "react-jss";
+import { PaginationProps } from "../Model/Pokemon.model";
 
-const Pagination = ({
+const Pagination: FC<PaginationProps> = ({
   totalPosts,
   postsPerPage,
   setCurrentPage,
@@ -17,7 +18,7 @@ const Pagination = ({
     <div className={classes.pagination}>
       {!loading && <span>Prev &lt; &lt;</span>}
 
-      {pages.map((page, index) => {
+      {pages.map((page: number, index: number) => {
         return (
           <button
             className={
@@ -41,36 +42,36 @@ const Pagination = ({
 const useStyles = createUseStyles(
   {
     pagination: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-      alignItems: 'center',
-      position: 'fixed',
-      bottom: '20px',
-      left: '22%',
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "center",
+      alignItems: "center",
+      position: "fixed",
+      bottom: "20px",
+      left: "22%",
     },
     button: {
-      width: '38px',
-      height: '38px',
-      fontFamily: 'inherit',
+      width: "38px",
+      height: "38px",
+      fontFamily: "inherit",
       fontWeight: 600,
-      fontSize: '12px',
-      margin: '0 10px',
-      borderRadius: '6px',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      background: 'darkslategrey',
-      color: '#fff',
-      border: '1px solid rgba(0,255,255,0.5)',
-      '&.active': {
+      fontSize: "12px",
+      margin: "0 10px",
+      borderRadius: "6px",
+      cursor: "pointer",
+      transition: "all 0.3s ease",
+      background: "darkslategrey",
+      color: "#fff",
+      border: "1px solid rgba(0,255,255,0.5)",
+      "&.active": {
         fontWeight: 900,
-        border: '1px solid darkslategrey',
-        background: 'rgba(0,255,255,0.5)',
-        color: '#fff',
+        border: "1px solid darkslategrey",
+        background: "rgba(0,255,255,0.5)",
+        color: "#fff",
       },
     },
   },
-  { name: 'Pagination' }
+  { name: "Pagination" }
 );
 
 export default Pagination;
